@@ -29,6 +29,9 @@ public class Util {
         return DriverManager.getConnection(connectionURL, userName,
                 password);
     }
+    public static void getMySQLHibernateCon(){
+
+    }
 }
 
 
