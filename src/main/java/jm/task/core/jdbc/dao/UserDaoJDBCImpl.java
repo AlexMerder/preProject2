@@ -20,7 +20,7 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void createUsersTable() throws SQLException, ClassNotFoundException {
-        preparedStatement = Util.getMySQLConnection().prepareStatement("CREATE TABLE user(\n" +
+        preparedStatement = Util.getMySQLConnection().prepareStatement("CREATE TABLE IF NOT EXISTS user(\n" +
                 "    id bigint auto_increment primary key,\n" +
                 "    name varchar(255),\n" +
                 "    lastName varchar(255),\n" +
@@ -31,11 +31,9 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void dropUsersTable() throws SQLException {
-        String sql = "DROP TABLE user;";
-        try{
-            statement.executeUpdate(sql);
-        } catch (SQLException ignored){
-        }
+        String sql = "DROP TABLE if exists user;";
+        statement.executeUpdate(sql);
+
 
         System.out.println("База данных удалена");
     }
