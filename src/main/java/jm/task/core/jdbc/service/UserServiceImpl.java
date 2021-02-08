@@ -1,5 +1,6 @@
 package jm.task.core.jdbc.service;
 
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
 
@@ -10,31 +11,38 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     UserDaoJDBCImpl userDaoJDBC = new UserDaoJDBCImpl();
+    UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
 
     public UserServiceImpl() throws SQLException, ClassNotFoundException {
 
     }
 
-    public void createUsersTable() throws SQLException, ClassNotFoundException {
-        userDaoJDBC.createUsersTable();
+    public void createUsersTable() throws SQLException, ClassNotFoundException,NullPointerException {
+//        userDaoJDBC.createUsersTable();
+        userDaoHibernate.createUsersTable();
     }
 
     public void dropUsersTable() throws SQLException {
-        userDaoJDBC.dropUsersTable();
+//        userDaoJDBC.dropUsersTable();
+        userDaoHibernate.dropUsersTable();
     }
     public void saveUser(String name, String lastName, byte age) throws SQLException, ClassNotFoundException {
-        userDaoJDBC.saveUser(name,lastName,age);
+//        userDaoJDBC.saveUser(name,lastName,age);
+        userDaoHibernate.saveUser(name,lastName,age);
     }
 
     public void removeUserById(long id) throws SQLException, ClassNotFoundException {
-        userDaoJDBC.removeUserById(id);
+//        userDaoJDBC.removeUserById(id);
+        userDaoHibernate.removeUserById(id);
     }
 
     public List<User> getAllUsers() throws SQLException {
-        return userDaoJDBC.getAllUsers();
+//        return userDaoJDBC.getAllUsers();
+        return userDaoHibernate.getAllUsers();
     }
 
     public void cleanUsersTable() throws SQLException {
-        userDaoJDBC.cleanUsersTable();
+//        userDaoJDBC.cleanUsersTable();
+        userDaoHibernate.cleanUsersTable();
     }
 }
