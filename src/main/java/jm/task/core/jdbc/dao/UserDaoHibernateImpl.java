@@ -58,6 +58,7 @@ public class UserDaoHibernateImpl implements UserDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     @Override

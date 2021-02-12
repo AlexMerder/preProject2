@@ -71,5 +71,6 @@ public class UserDaoJDBCImpl implements UserDao {
         String sql = "delete from user";
         statement.executeUpdate(sql);
         System.out.println("Таблица очищена");
+
     }
 }

@@ -17,16 +17,16 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    public void createUsersTable() throws SQLException, ClassNotFoundException,NullPointerException {
+    public void createUsersTable() throws NullPointerException {
 //        userDaoJDBC.createUsersTable();
         userDaoHibernate.createUsersTable();
     }
 
-    public void dropUsersTable() throws SQLException {
+    public void dropUsersTable()  {
 //        userDaoJDBC.dropUsersTable();
         userDaoHibernate.dropUsersTable();
     }
-    public void saveUser(String name, String lastName, byte age) throws SQLException, ClassNotFoundException {
+    public void saveUser(String name, String lastName, byte age)  {
 //        userDaoJDBC.saveUser(name,lastName,age);
         userDaoHibernate.saveUser(name,lastName,age);
     }
